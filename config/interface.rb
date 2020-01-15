@@ -10,7 +10,7 @@ class RunScrape
     input = nil
     puts"Welcome to my Scraper!\nIt scrapes stock data and provides access to the latest news"
     while input != 'exit'
-      puts "To get a list of company press 1\nTo search for  a company by symbol press 2"
+      puts "1- List of Companies\n2. Search\n3. Sort\n4. View Random Stock"
       input = gets.chomp
       case input
       when '1'
@@ -21,6 +21,8 @@ class RunScrape
         find_stock_by_ticker
       when '3'
         sort
+      when '4'
+
       end
     end
   end
@@ -56,6 +58,9 @@ class RunScrape
     else
      input = nil
     end
+  end
+  def rand_stock
+    Launchy.open("#{Stock.all[rand(24)].news}")
 
   end
 

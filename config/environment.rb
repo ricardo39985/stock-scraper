@@ -1,4 +1,5 @@
 require "pry"
+require 'launchy'
 require "nokogiri"
 require "open-uri"
 require_relative 'url.rb'
