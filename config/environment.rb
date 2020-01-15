@@ -10,8 +10,8 @@ class Scraper
   def initialize
     url = open(Url.main+"0")
     @doc = Nokogiri::HTML(url)
-    # counters
-    # import
+    counters
+    import
   end
   def counters
     @page_counter = 0
@@ -19,6 +19,9 @@ class Scraper
     @total_stocks = @doc.css(".pager div")[0].text.split(" ")[-2].to_f #Extracted a total count of all stocks to float format
     @final_page = (@total_stocks/@stocks_per_page).round
     @stocks = []
+  end
+  def self.max_page
+    @final_page
   end
 
   def import
