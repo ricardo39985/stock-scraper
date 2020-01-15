@@ -18,7 +18,7 @@ class RunScrape
   def main
     input = nil
     while input != 'exit'
-      puts "**************************************\n*Below is a list of available commands \n***************************************\n"
+      puts "**************************************\n".colorize(:blue)+"Below is a list of available commands \n"+"***************************************\n".colorize(:blue)
       puts "1- List of Companies\n2. Search\n3. Sort\n4. View Random Stock"
       input = gets.chomp
       case input
