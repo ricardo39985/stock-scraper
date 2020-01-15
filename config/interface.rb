@@ -10,14 +10,7 @@ class RunScrape
   end
   def welcome
     puts `clear`
-    puts "(  ____ \\__   __/(  ___  )(  ____ \| \    /\     (  ____ \(  ____ \(  ____ )(  ___  )(  ____ )(  ____ \(  ____ )
-| (    \/   ) (   | (   ) || (    \/|  \  / /     | (    \/| (    \/| (    )|| (   ) || (    )|| (    \/| (    )|
-| (_____    | |   | |   | || |      |  (_/ /_____ | (_____ | |      | (____)|| (___) || (____)|| (__    | (____)|
-(_____  )   | |   | |   | || |      |   _ ((_____)(_____  )| |      |     __)|  ___  ||  _____)|  __)   |     __)
-      ) |   | |   | |   | || |      |  ( \ \            ) || |      | (\ (   | (   ) || (      | (      | (\ (
-/\____) |   | |   | (___) || (____/\|  /  \ \     /\____) || (____/\| ) \ \__| )   ( || )      | (____/\| ) \ \__
-\_______)   )_(   (_______)(_______/|_/    \/     \_______)(_______/|/   \__/|/     \||/       (_______/|/   \__/
-                                                                                                                 "
+    puts Url.logo.colorize(:blue)
     puts"Welcome to my Scraper!\nIt scrapes stock data and provides access to the latest news"
     intro_timer
     puts `clear`
@@ -91,6 +84,7 @@ class RunScrape
     end
   end
   def exit_m
+    puts Url.logo.colorize(:red).on_blue
     puts "Thanks for checking out my work.\nI welcome your feedback!"
     intro_timer(30)
   end
