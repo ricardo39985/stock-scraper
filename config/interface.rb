@@ -1,7 +1,11 @@
 require_relative 'environment.rb'
 
 class RunScrape
-  def self.main
+  def initialize
+    stocks
+
+  end
+  def main
     input = nil
     puts"Welcome to my Scraper!\nIt scrapes stock data and provides access to the latest news"
     while input != 'exit'
@@ -9,18 +13,34 @@ class RunScrape
       input = gets.chomp
       case input
       when '1'
-        stocks.each { |hash| puts e.company }
+        list_stocks
+      when '2'
+        puts "Please enter the ticker :"
+        ticker = gets.chomp
+        find_stock_by_ticker(ticker)
+
       end
 
     end
 
   end
 
-  def self.stocks
-    Stock.import(Scraper.new.import)
-  end
-  def method_name
+  def stocks
 
+    Stock.import(Scraper.new.import)
+    @stock = Stock.all
+
+  end
+  def list_stocks
+    @stock.each { |hash| puts hash.company }
+    puts "\n\n\n\n\n\n\n"
+  end
+  def find_stock_by_ticker(ticker)
+    if Stock.all.detect { |stock|stock.symbol == ticker.upcase  }
+      pp Stock.all.detect { |stock|stock.symbol == ticker.upcase  }.map { |e| e }
+    else
+      puts "Sorry, that stock was not found in the database"
+    end
   end
 
 end

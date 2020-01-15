@@ -3,6 +3,7 @@ require "nokogiri"
 require "open-uri"
 require_relative 'url.rb'
 require_relative 'stock.rb'
+require_relative 'interface.rb'
 
 
 class Scraper
@@ -41,4 +42,4 @@ class Scraper
     @stocks
   end
 end
-binding.pry
+# binding.pry
