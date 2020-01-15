@@ -5,7 +5,7 @@ require "open-uri"
 require_relative 'url.rb'
 require_relative 'stock.rb'
 require_relative 'interface.rb'
-
+require'colorize'
 
 class Scraper
   def initialize
